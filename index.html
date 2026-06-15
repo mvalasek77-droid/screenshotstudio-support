@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support &amp; FAQ – Screenshot Studio</title>
+    <style>
+        :root {
+            --primary: #007AFF;
+            --primary-dark: #0056CC;
+            --bg: #FFFFFF;
+            --bg-soft: #F5F7FA;
+            --text: #1D1D1F;
+            --text-secondary: #6E6E73;
+            --border: #E5E5EA;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px 50px;
+        }
+        .app-icon {
+            width: 80px; height: 80px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.8rem;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+        .nav-bar {
+            background: var(--bg-soft);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+            text-align: center;
+        }
+        .nav-bar a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0 12px;
+        }
+        .nav-bar a:hover { text-decoration: underline; }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+        .app-description {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 36px;
+        }
+        .app-description h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        .app-description p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0 0;
+        }
+        .feature {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .feature .emoji { font-size: 1.5rem; margin-bottom: 4px; }
+        .feature .label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-soft);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .faq-item.open .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 16px 20px;
+        }
+        .faq-answer p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-answer ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .faq-answer li {
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .contact-section {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .contact-section h2 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .contact-section p {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .contact-section a {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+        .contact-section a:hover { text-decoration: underline; }
+        .privacy-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+        .privacy-link:hover { background: var(--primary-dark); }
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--primary); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            header { padding: 40px 16px 36px; }
+            header h1 { font-size: 1.6rem; }
+            .container { padding: 28px 16px 48px; }
+            h2 { font-size: 1.25rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="app-icon">📱</div>
+    <h1>Screenshot Studio</h1>
+    <p>Support &amp; FAQ</p>
+    <div class="badge">by Alpha Elite Holdings Inc.</div>
+</header>
+
+<div class="nav-bar">
+    <a href="https://mvalasek77-droid.github.io/screenshotstudio-privacy/">Privacy Policy</a>
+    <a href="mailto:support@mikevalasek.com">Contact Us</a>
+</div>
+
+<div class="container">
+
+    <div class="app-description">
+        <h2>About Screenshot Studio</h2>
+        <p>Screenshot Studio is an iOS app designed to help developers create beautiful, professional App Store Connect screenshots. Compose your app screenshots with device frames, backgrounds, and typography — all processed locally on your device for maximum privacy and speed.</p>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="emoji">🖼️</div>
+                <div class="label">Device Frames</div>
+            </div>
+            <div class="feature">
+                <div class="emoji">🎨</div>
+                <div class="label">Custom Backgrounds</div>
+            </div>
+            <div class="feature">
+                <div class="emoji">📐</div>
+                <div class="label">Multiple Sizes</div>
+            </div>
+            <div class="feature">
+                <div class="emoji">🔒</div>
+                <div class="label">100% Private</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Does Screenshot Studio send my screenshots to a server?</div>
+        <div class="faq-answer">
+            <p>No. All screenshot processing happens locally on your device. No images, data, or settings are ever uploaded to any server. Your screenshots remain completely under your control.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What data does the app collect?</div>
+        <div class="faq-answer">
+            <p>Screenshot Studio only accesses the photos and screenshots you explicitly select within the app, and saves your in-app preferences (like favorite device frames and colors). Nothing is sent off-device. See our <a href="https://mvalasek77-droid.github.io/screenshotstudio-privacy/">Privacy Policy</a> for full details.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Does the app include analytics or tracking?</div>
+        <div class="faq-answer">
+            <p>No. Screenshot Studio contains no third-party analytics SDKs, no advertising trackers, and no usage telemetry. We believe your data is your business — literally.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Which device frames are supported?</div>
+        <div class="faq-answer">
+            <p>Screenshot Studio supports frames for current Apple devices including:</p>
+            <ul>
+                <li>iPhone 16 / 16 Pro / 16 Pro Max</li>
+                <li>iPhone 15 / 15 Pro / 15 Pro Max</li>
+                <li>iPad Pro (M4)</li>
+                <li>iPad Air (M2)</li>
+                <li>And more</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do I export my screenshots?</div>
+        <div class="faq-answer">
+            <p>Once you've composed your screenshot, simply tap the export button to save the final image directly to your photo library. You can then upload it to App Store Connect via your browser or Transporter app.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is Screenshot Studio suitable for children?</div>
+        <div class="faq-answer">
+            <p>Yes. The app is rated 4+ on the App Store and contains no content inappropriate for children. It also does not collect any data from users of any age.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">I'm having an issue. How do I get help?</div>
+        <div class="faq-answer">
+            <p>We're here to help! Email us at <a href="mailto:support@mikevalasek.com">support@mikevalasek.com</a> and we'll get back to you as soon as possible. Please include your device model and iOS version for the fastest support.</p>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>Contact &amp; Support</h2>
+        <p>Have a question, suggestion, or issue? We'd love to hear from you.</p>
+        <p>
+            <a href="mailto:support@mikevalasek.com">support@mikevalasek.com</a>
+        </p>
+        <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-secondary);">
+            Mike Valasek / Alpha Elite Holdings Inc.<br>
+            Team ID: UDM4W27W9V
+        </p>
+        <a href="https://mvalasek77-droid.github.io/screenshotstudio-privacy/" class="privacy-link">View Privacy Policy →</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Alpha Elite Holdings Inc. All rights reserved.</p>
+    <p style="margin-top: 8px;">
+        <a href="https://mvalasek77-droid.github.io/screenshotstudio-privacy/">Privacy Policy</a>
+    </p>
+</footer>
+
+<script>
+    // Auto-open first FAQ item
+    document.querySelector('.faq-item')?.classList.add('open');
+</script>
+
+</body>
+</html>
